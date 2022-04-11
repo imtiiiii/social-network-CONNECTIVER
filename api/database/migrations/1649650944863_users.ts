@@ -10,7 +10,8 @@ export default class Users extends BaseSchema {
       table.string("psd").notNullable()
       table.string("first_name").notNullable();
       table.string("last_name").defaultTo("");
-      table.string("username").notNullable().unique();
+      table.string("username").unique()
+      table.string("gender").notNullable()
       table.timestamp('created_at', { useTz: true }).defaultTo(this.now())
       table.timestamp('updated_at', { useTz: true }).defaultTo(this.now())
     })
