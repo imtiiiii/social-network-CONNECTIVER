@@ -88,7 +88,7 @@
 						<input
 							class="_log_input"
 							placeholder="Confirm password"
-							type="text"
+							type="password"
 							required
 							v-model="confirmPassword"
 						/>
@@ -96,9 +96,9 @@
 					<div class="_log_input_group">
 						<select class="_1select" v-model="gender">
 							<option selected="true" disabled>Gender</option>
-							<option>Female</option>
-							<option>Male</option>
-							<option>Other</option>
+							<option>female</option>
+							<option>male</option>
+							<option>other</option>
 						</select>
 					</div>
 
@@ -110,6 +110,9 @@
 								<a href="">Privacy</a></label
 							>
 						</div>
+					</div>
+					<div v-if="responseMessage !== null">
+						<h3>{{ responseMessage }}</h3>
 					</div>
 					<div class="_log_button">
 						<button class="_log_btn _btn_long" type="submit">
@@ -132,17 +135,26 @@ export default {
 			terms: false,
 			password: "",
 			confirmPassword: "",
-			gender: "",
+			gender: null,
 			responseMessage: "",
 		};
 	},
 	methods: {
-		signup(event) {
+		signup() {
 			console.log(this.email);
 			console.log(this.password);
 			console.log(this.firstName + " " + this.lastName);
 			console.log(this.terms);
-			console.log(this.gender[0]);
+			console.log(this.gender);
+			if (this.password !== this.confirmPassword) {
+				this.responseMessage = "password did not match!Try again";
+			} else if (!this.terms) {
+				this.responseMessage = "accept our terms to continue";
+			} else if (this.gender === null) {
+				this.responseMessage = "Please select your gender";
+			} else {
+				this.responseMessage = null;
+			}
 		},
 	},
 };
