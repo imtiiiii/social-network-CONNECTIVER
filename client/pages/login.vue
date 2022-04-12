@@ -104,7 +104,12 @@ export default {
 			this.isLoading = true;
 			const res = await this.callApi("post", "/auth/login", this.form);
 
-			console.log(res);
+			console.log(res.status);
+			if (res.status === 200) {
+				this.$store.dispatch("checkUser");
+				console.log("200");
+				this.$router.push("/");
+			}
 
 			this.isLoading = false;
 		},

@@ -3,11 +3,11 @@
 
 export const strict = false
 export const state = () => ({
-    authUser: false,
+  authUser: false,
 })
 // common getters
-export const getters ={
-  getAuthUser(state){
+export const getters = {
+  getAuthUser(state) {
     return state.authUser
   },
 }
@@ -20,14 +20,20 @@ export const mutations = {
 // actionns for commiting mutations
 export const actions = {
   async nuxtServerInit({ commit }, { $axios }) {
-    
+
     try {
       // get the initial data
       let { data } = await $axios.get('/auth/getUser')
+      console.log(data)
       commit('loginUser', data)
-      
+
     } catch (e) {
-        console.log('Pleae login ')
+      console.log('Pleae login ')
     }
   },
+  async checkUser({ commit }) {
+    const res = await this.$axios.$get("http://localhost:3333/auth/getUser")
+    commit("loginUser", res)
+    console.log("im called")
+  }
 }
