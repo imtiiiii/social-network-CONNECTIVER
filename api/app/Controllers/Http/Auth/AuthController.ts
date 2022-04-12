@@ -14,11 +14,10 @@ export default class AuthController {
   }
 
   async register(ctx: HttpContextContract) {
-    // await this.authValidator.validateSignupSchema(ctx)
+    // const data = await this.authValidator.validateSignupSchema(ctx)
     // return this.authService.register(ctx);
     const data = ctx.request.body();
-    const user = User.create(data);
-
+    const user = await User.create(data);
     return ctx.auth.use("web").login(user)
 
   }
@@ -34,7 +33,7 @@ export default class AuthController {
     try {
       return ctx.auth.use('web').authenticate();
     } catch (error) {
-
+      console.log("not found")
     }
   }
 

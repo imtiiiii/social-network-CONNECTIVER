@@ -1,17 +1,17 @@
 import User from '../../../Models/User'
 import Database from '@ioc:Adonis/Lucid/Database'
 
-export default class AuthQuery{
-  
-  searchUsername(username){
-    return Database.from('users').where('username','like', `${username}%`).count('* as total')
+export default class AuthQuery {
+
+  searchUsername(username) {
+    return Database.from('users').where('username', 'like', `${username}%`).count('* as total')
   }
-  
-  register(data){
+
+  register(data) {
     return User.create(data);
   }
-  
-  updateUser(column, value, data){
+
+  updateUser(column, value, data) {
     return User.query().where(column, value).update(data)
   }
 
@@ -21,7 +21,7 @@ export default class AuthQuery{
   getSingleUserInfo(column, value) {
     return User.query().where(column, value).first()
   }
-  updateOnline(uid, isOnline){
-    return User.query().where('id', uid).update({is_online : isOnline})
+  updateOnline(uid, isOnline) {
+    return User.query().where('id', uid).update({ is_online: isOnline })
   }
 }
