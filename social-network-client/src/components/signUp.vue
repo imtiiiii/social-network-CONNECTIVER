@@ -94,15 +94,20 @@
 						/>
 					</div>
 					<div class="_log_input_group">
-						<select class="_1select" v-model="gender">
-							<option selected="true" disabled>Gender</option>
+						<Select
+							placeholder="ddf"
+							class="_1select"
+							v-model="gender"
+						>
+							<Option selected="true" disabled>Gender</Option>
 							<option>female</option>
 							<option>male</option>
 							<option>other</option>
-						</select>
+						</Select>
 					</div>
 
 					<div class="_log_input_group">
+						<H6>hello</H6>
 						<div class="_log_checkBox">
 							<input type="checkbox" id="html" v-model="terms" />
 							<label for="html"
