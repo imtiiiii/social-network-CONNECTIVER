@@ -21,10 +21,7 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 import 'App/Controllers/Http/Auth/auth'
-import UsersController from '../app/Controllers/Http/UsersController'
 
-Route.get('/', () => {
-  return { message: 'You have landed in empty ocean!' }
+Route.get('/', ()=>{
+  return{message:'You have landed in empty ocean!'}
 })
-Route.post("/add_users/", "UsersController.store")
-Route.get("/users/", "UsersController.show")

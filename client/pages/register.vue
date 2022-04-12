@@ -72,7 +72,7 @@
 					<!-- ******PASSWORD******* -->
 					<div class="_log_input_group">
 						<Input
-							v-model="userInfo.psd"
+							v-model="userInfo.password"
 							placeholder="Password"
 							size="large"
 							type="password"
@@ -129,33 +129,35 @@ export default {
 		return {
 			userInfo: {
 				email: "",
+				password: "",
 				first_name: "",
 				last_name: "",
-				psd: "",
 				gender: null,
 			},
 			responseMessage: null,
 			terms: false,
-			confirmPassword: "",
+			confirmPassword: null,
 		};
 	},
 	methods: {
-		signup() {
-			console.log("i am signup called");
-			console.log(this.userInfo.email);
-			console.log(this.userInfo.psd);
-			console.log(
-				this.userInfo.first_name + " " + this.userInfo.last_name
-			);
-			console.log(this.terms);
-			console.log(this.userInfo.gender);
+		async signup() {
 			// CHECK IF USER AGREED TO THE TERMS AND CONDITION
 			if (!this.terms) {
 				this.responseMessage =
 					"Please accept out terms&condition to proceed";
 			} else if (this.userInfo.gender === null) {
 				this.responseMessage = "please select your gender";
-			} else this.responseMessage = null;
+			} else if (this.userInfo.password !== this.confirmPassword) {
+				this.responseMessage = "password does not match . Try again";
+			} else {
+				this.responseMessage = null;
+				const res = await this.callApi(
+					"post",
+					"/auth/register",
+					this.userInfo
+				);
+				console.log(res);
+			}
 		},
 	},
 };
