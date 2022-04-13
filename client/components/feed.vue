@@ -2223,12 +2223,19 @@ export default {
 			isloaded: false,
 			isHide: true,
 			isModal: false,
+			posts: null,
 		};
 	},
 
 	methods: {},
 
-	created() {
+	async created() {
+		// ************GET POSTS***********
+		const res = await this.callApi("get", "posts/all");
+		// IF SUCCESSFULL
+		if (res.status === 20) {
+			this.posts = res.data;
+		}
 		var self = this;
 		var self2 = this;
 		setTimeout(function () {
