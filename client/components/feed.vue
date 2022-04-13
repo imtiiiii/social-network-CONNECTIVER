@@ -36,6 +36,7 @@
 		<!-- Shimmer -->
 
 		<template v-if="isloaded">
+			<!-- *********POST STATRS HERE ************* -->
 			<div class="_card _mar_b20">
 				<div class="_card_top_all">
 					<div class="_card_top">
@@ -47,7 +48,7 @@
 								src="../static/img/placeholder.png"
 							/>
 						</a>
-						<!-- *********POST STATRS HERE ************* -->
+
 						<div class="_card_details">
 							<div class="_card_name_all">
 								<span class="_card_name_main">
@@ -181,6 +182,7 @@
 									>updated the profile picture</span
 								>
 							</div>
+							<!-- ********POST TIME ********* -->
 							<p class="_card_time">
 								a few seconds ago
 								<span class="_card_time_public">
@@ -271,7 +273,7 @@
 						<p class="_num_like_text">1 Comment</p>
 					</div>
 				</div>
-
+				<!-- ************LIKE COMMENT SHARE REACT OPTIONS************* -->
 				<div class="_1card_count">
 					<ul class="_1card_count_list">
 						<li class="">
@@ -484,7 +486,8 @@
 						</li>
 					</ul>
 				</div>
-
+				<!-- ***********COMMENT SECTION *********** -->
+				<!-- **********WRITE A COMMENT*********** -->
 				<div class="_1card_comment_box">
 					<div class="_1card_comment_box_pic _load_div">
 						<img
@@ -753,8 +756,9 @@
 					</div>
 				</div>
 			</div>
+			<!-- ************************************2ND POST ********************************** -->
 
-			<div class="_card _mar_b20">
+			<!-- <div class="_card _mar_b20">
 				<div class="_card_top_all">
 					<div class="_card_top">
 						<a href="" class="_card_pic">
@@ -770,10 +774,10 @@
 								<span class="_card_name_main">
 									<a href="" class="_card_name"
 										>Kollol Chakraborty</a
-									>
+									> -->
 
-									<!-- Hover Profile info -->
-									<div class="_pro_info">
+			<!-- Hover Profile info -->
+			<!-- <div class="_pro_info">
 										<div class="_pro_info_cover">
 											<img
 												class="_pro_info_cover_img"
@@ -801,10 +805,10 @@
 													>
 														Karen River
 													</router-link>
-												</p>
-												<!-- <p><a href="" class="_pro_info_pre">3 followers</a></p> -->
+												</p> -->
+			<!-- <p><a href="" class="_pro_info_pre">3 followers</a></p> -->
 
-												<ul class="_pro_info_list">
+			<!-- <ul class="_pro_info_list">
 													<li>
 														<i
 															class="fas fa-users"
@@ -889,9 +893,9 @@
 												</button>
 											</li>
 										</ul>
-									</div>
-									<!-- Hover Profile info -->
-								</span>
+									</div> -->
+			<!-- Hover Profile info -->
+			<!-- </span>
 								<span class="_card_name_span"
 									>updated the profile picture</span
 								>
@@ -1021,12 +1025,12 @@
 								<p class="_cardMulti_more_text">+3</p>
 							</div>
 						</div>
-					</div>
+					</div> -->
 
-					<!-- <div class="_card_status_pic_all">
+			<!-- <div class="_card_status_pic_all">
                         <div @click="isModal = true" class="_card_status_pic"><img alt="" title="" class="_card_status_img" src="../static/img/placeholder.png" lazy="loaded"></div>
                     </div> -->
-				</div>
+			<!-- </div>
 
 				<div class="_num_like_all">
 					<div class="_num_like_left">
@@ -1041,9 +1045,9 @@
 
 				<div class="_1card_count">
 					<ul class="_1card_count_list">
-						<li class="">
-							<!-- React -->
-							<div class="_all_react">
+						<li class=""> -->
+			<!-- React -->
+			<!-- <div class="_all_react">
 								<div class="reactions-container">
 									<div
 										class="
@@ -1156,7 +1160,8 @@
 									</div>
 								</div>
 							</div>
-							<!-- React -->
+							
+                            
 							<div class="_1card_count_pic">
 								<svg
 									class="_1card_count_img"
@@ -1519,13 +1524,13 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</template>
 
 		<!-- Image show modal -->
-		<div v-if="isModal" class="_imageModal">
-			<div class="_imageModal_main">
-				<!-- Left -->
+		<!-- <div v-if="isModal" class="_imageModal"> -->
+		<!-- <div class="_imageModal_main">
+				
 				<div class="_imageModal_left">
 					<div class="_imageModal_pic">
 						<img
@@ -1542,11 +1547,10 @@
 					<p class="_imageModal_errow _pre">
 						<i class="fas fa-chevron-left"></i>
 					</p>
-				</div>
-				<!-- Left -->
+				</div>  -->
 
-				<!-- Right -->
-				<div class="_imageModal_right">
+		<!-- Right -->
+		<!-- <div class="_imageModal_right">
 					<p @click="isModal = false" class="_imageModal_right_close">
 						<Icon type="md-close" />
 					</p>
@@ -1600,9 +1604,9 @@
 
 					<div class="_1card_count">
 						<ul class="_1card_count_list">
-							<li class="">
-								<!-- React -->
-								<div class="_all_react">
+							<li class=""> -->
+		<!-- React -->
+		<!-- <div class="_all_react">
 									<div class="reactions-container">
 										<div
 											class="
@@ -1734,10 +1738,10 @@
 											</div>
 										</div>
 									</div>
-								</div>
-								<!-- React -->
-								<div class="_1card_count_pic">
-									<svg
+								</div> -->
+		<!-- React -->
+		<!-- <div class="_1card_count_pic"> -->
+		<!-- <svg
 										class="_1card_count_img"
 										xmlns="http://www.w3.org/2000/svg"
 										xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -1766,8 +1770,8 @@
 									</svg>
 								</div>
 								Like
-							</li>
-							<li>
+							</li> -->
+		<!-- <li>
 								<div class="_1card_count_pic">
 									<svg
 										style="
@@ -1804,8 +1808,8 @@
 									</svg>
 								</div>
 								Comment
-							</li>
-							<li>
+							</li> -->
+		<!-- <li>
 								<div class="_1card_count_pic">
 									<svg
 										class="_1card_count_img"
@@ -1833,12 +1837,12 @@
 									</svg>
 								</div>
 								Share
-							</li>
-						</ul>
-					</div>
+							</li> -->
+		<!-- </ul> -->
+		<!-- </div> -->
 
-					<div class="_imageModal_commet">
-						<div class="_imageModal_commet_main _1scrollbar">
+		<!-- <div class="_imageModal_commet"> -->
+		<!-- <div class="_imageModal_commet_main _1scrollbar">
 							<div class="_comment_main">
 								<a href="" class="_comment_pic"
 									><img
@@ -2181,10 +2185,10 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 
-						<div class="_imageModal_commet_statusBox">
-							<div class="_1card_comment_box">
+		<!-- <div class="_imageModal_commet_statusBox"> -->
+		<!-- <div class="_1card_comment_box">
 								<div class="_1card_comment_box_pic _load_div">
 									<img
 										src="../static/img/male.jpg"
@@ -2201,13 +2205,13 @@
 										/>
 									</div>
 								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- Right -->
-			</div>
-		</div>
+							</div> -->
+		<!-- </div> -->
+		<!-- </div> -->
+		<!-- </div> -->
+		<!-- Right -->
+		<!-- </div> -->
+		<!-- </div>  -->
 		<!-- Image show modal -->
 	</div>
 </template>
