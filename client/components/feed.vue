@@ -44,7 +44,7 @@
 								alt=""
 								title=""
 								class="_card_img"
-								src="/static/img/placeholder.png"
+								src="../static/img/placeholder.png"
 							/>
 						</a>
 						<div class="_card_details">
@@ -59,7 +59,7 @@
 										<div class="_pro_info_cover">
 											<img
 												class="_pro_info_cover_img"
-												src="/static/img/image_1608226845923.jpeg"
+												src="../static/img/image_1608226845923.jpeg"
 												alt=""
 												title=""
 											/>
@@ -69,7 +69,7 @@
 											<div class="_pro_info_pro">
 												<img
 													class="_pro_info_pro_img"
-													src="/static/img/pic.jpg"
+													src="../static/img/pic.jpg"
 													alt=""
 													title=""
 												/>
@@ -247,7 +247,7 @@
 								alt=""
 								title=""
 								class="_card_status_img"
-								src="/static/img/placeholder.png"
+								src="../static/img/placeholder.png"
 								lazy="loaded"
 							/>
 						</div>
@@ -482,7 +482,7 @@
 					<div class="_1card_comment_box_pic _load_div">
 						<img
 							class="_1card_comment_box_img"
-							src="/static/img/male.jpg"
+							src="../static/img/male.jpg"
 							alt=""
 							title=""
 						/>
@@ -503,7 +503,7 @@
 							alt=""
 							title=""
 							class="_comment_img"
-							src="/static/img/male.jpg"
+							src="../static/img/male.jpg"
 						/>
 					</a>
 					<div class="_comment_details">
@@ -628,7 +628,7 @@
 										alt=""
 										title=""
 										class="_comment_img"
-										src="/static/img/male.jpg"
+										src="../static/img/male.jpg"
 									/>
 								</a>
 								<div class="_comment_details">
@@ -730,7 +730,7 @@
 										alt=""
 										title=""
 										class="_1card_comment_box_img"
-										src="/static/img/male.jpg"
+										src="../static/img/male.jpg"
 									/>
 								</div>
 								<div class="_1card_comment_box_input_icon">
@@ -755,7 +755,7 @@
 								alt=""
 								title=""
 								class="_card_img"
-								src="/static/img/placeholder.png"
+								src="../static/img/placeholder.png"
 							/>
 						</a>
 						<div class="_card_details">
@@ -770,7 +770,7 @@
 										<div class="_pro_info_cover">
 											<img
 												class="_pro_info_cover_img"
-												src="/static/img/image_1608226845923.jpeg"
+												src="../static/img/image_1608226845923.jpeg"
 												alt=""
 												title=""
 											/>
@@ -780,7 +780,7 @@
 											<div class="_pro_info_pro">
 												<img
 													class="_pro_info_pro_img"
-													src="/static/img/pic.jpg"
+													src="../static/img/pic.jpg"
 													alt=""
 													title=""
 												/>
@@ -1017,7 +1017,7 @@
 					</div>
 
 					<!-- <div class="_card_status_pic_all">
-                        <div @click="isModal = true" class="_card_status_pic"><img alt="" title="" class="_card_status_img" src="/static/img/placeholder.png" lazy="loaded"></div>
+                        <div @click="isModal = true" class="_card_status_pic"><img alt="" title="" class="_card_status_img" src="../static/img/placeholder.png" lazy="loaded"></div>
                     </div> -->
 				</div>
 
@@ -1249,7 +1249,7 @@
 					<div class="_1card_comment_box_pic _load_div">
 						<img
 							class="_1card_comment_box_img"
-							src="/static/img/male.jpg"
+							src="../static/img/male.jpg"
 							alt=""
 							title=""
 						/>
@@ -1270,7 +1270,7 @@
 							alt=""
 							title=""
 							class="_comment_img"
-							src="/static/img/male.jpg"
+							src="../static/img/male.jpg"
 						/>
 					</a>
 					<div class="_comment_details">
@@ -1395,7 +1395,7 @@
 										alt=""
 										title=""
 										class="_comment_img"
-										src="/static/img/male.jpg"
+										src="../static/img/male.jpg"
 									/>
 								</a>
 								<div class="_comment_details">
@@ -1497,7 +1497,7 @@
 										alt=""
 										title=""
 										class="_1card_comment_box_img"
-										src="/static/img/male.jpg"
+										src="../static/img/male.jpg"
 									/>
 								</div>
 								<div class="_1card_comment_box_input_icon">
@@ -1523,7 +1523,7 @@
 					<div class="_imageModal_pic">
 						<img
 							class="_imageModal_img"
-							src="/static/img/file_1607448690151.jpg"
+							src="../static/img/file_1607448690151.jpg"
 							alt=""
 							title=""
 						/>
@@ -1549,7 +1549,7 @@
 							<img
 								alt=""
 								title=""
-								src="/static/img/placeholder.png"
+								src="../static/img/placeholder.png"
 								class="_card_img"
 							/>
 						</a>
@@ -1837,7 +1837,7 @@
 									><img
 										alt=""
 										title=""
-										src="/static/img/male.jpg"
+										src="../static/img/male.jpg"
 										class="_comment_img"
 								/></a>
 								<div class="_comment_details">
@@ -1986,7 +1986,7 @@
 											<a href="" class="_comment_pic">
 												<img
 													class="_comment_img"
-													src="/static/img/male.jpg"
+													src="../static/img/male.jpg"
 													alt=""
 													title=""
 												/>
@@ -2151,7 +2151,7 @@
 													"
 													alt=""
 													title=""
-													src="/static/img/male.jpg"
+													src="../static/img/male.jpg"
 												/>
 											</div>
 											<div
@@ -2180,7 +2180,7 @@
 							<div class="_1card_comment_box">
 								<div class="_1card_comment_box_pic _load_div">
 									<img
-										src="/static/img/male.jpg"
+										src="../static/img/male.jpg"
 										alt=""
 										title=""
 										class="_1card_comment_box_img"
