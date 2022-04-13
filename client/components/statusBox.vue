@@ -231,7 +231,7 @@
 							</div>
 						</div>
 
-						<div class="_statusBox_main_bottom">
+						<div v-on:click="share" class="_statusBox_main_bottom">
 							<button
 								type="button"
 								class="
@@ -241,7 +241,7 @@
 									ivu-btn-large
 								"
 							>
-								<span v-on:click="share"> Share</span>
+								<span> Share</span>
 							</button>
 						</div>
 					</div>
@@ -268,8 +268,17 @@ export default {
 	},
 
 	methods: {
-		share() {
+		async share() {
 			console.log("share called", this.caption);
+			const res = await this.callApi("post", "/posts/share", {
+				caption: this.caption,
+				user_id: this.user.id,
+			});
+			if (res.status === 20) {
+				this.$router.push("/");
+				location.reload();
+				this.caption = "";
+			}
 		},
 	},
 
