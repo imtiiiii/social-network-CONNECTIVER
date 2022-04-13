@@ -157,7 +157,7 @@ export default {
 					this.userInfo
 				);
 				if (res.status === 200) {
-					this.$store.dispatch("checkUser");
+					await this.$store.dispatch("checkUser");
 					this.$router.push("/");
 				}
 			}

@@ -106,7 +106,7 @@ export default {
 
 			console.log(res.status);
 			if (res.status === 200) {
-				this.$store.dispatch("checkUser");
+				await this.$store.dispatch("checkUser");
 				console.log("200");
 				this.$router.push("/");
 			}
