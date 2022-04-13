@@ -47,15 +47,17 @@
 								src="../static/img/placeholder.png"
 							/>
 						</a>
+						<!-- *********POST STATRS HERE ************* -->
 						<div class="_card_details">
 							<div class="_card_name_all">
 								<span class="_card_name_main">
+									<!-- ******************POST OWNER NAME****************** -->
 									<a href="" class="_card_name"
-										>Kollol Chakraborty</a
+										>Kollol Chakrabortyyy</a
 									>
 
-									<!-- Hover Profile info -->
-									<div class="_pro_info">
+									<!-- ************Hover Profile info -->
+									<!-- <div class="_pro_info">
 										<div class="_pro_info_cover">
 											<img
 												class="_pro_info_cover_img"
@@ -83,10 +85,10 @@
 													>
 														Karen River
 													</router-link>
-												</p>
-												<!-- <p><a href="" class="_pro_info_pre">3 followers</a></p> -->
+												</p> -->
+									<!-- <p><a href="" class="_pro_info_pre">3 followers</a></p> -->
 
-												<ul class="_pro_info_list">
+									<!-- <ul class="_pro_info_list">
 													<li>
 														<i
 															class="fas fa-users"
@@ -170,10 +172,11 @@
 													Message
 												</button>
 											</li>
-										</ul>
-									</div>
+										</ul> -->
+									<!-- </div> -->
 									<!-- Hover Profile info -->
 								</span>
+								<!-- *********POST ACTIVITY TYPE******** -->
 								<span class="_card_name_span"
 									>updated the profile picture</span
 								>
@@ -186,7 +189,8 @@
 							</p>
 						</div>
 					</div>
-					<div class="_card_top_more">
+					<!-- ****************DROP DOWN OPTION IN A POST  -->
+					<!-- <div class="_card_top_more">
 						<Dropdown trigger="click" placement="bottom-end">
 							<a class="_more" href="javascript:void(0)">
 								<i class="fas fa-angle-down"></i>
@@ -235,25 +239,28 @@
 								>
 							</DropdownMenu>
 						</Dropdown>
-					</div>
+					</div> -->
 				</div>
-
+				<!-- ********************MAIN CONTENT************************ -->
+				<!-- ********************MAIN CONTENT************************ -->
 				<div class="_card_body">
-					<p class="_card_text"><span>What is your minddds</span></p>
+					<!-- ********************MAIN CONTENT CAPTION************************ -->
+					<p class="_card_text"><span>CAPTION HERE PLEASE</span></p>
 
 					<div class="_card_status_pic_all">
+						<!-- ********************MAIN CONTENT IMG/VIDEO************************ -->
 						<div @click="isModal = true" class="_card_status_pic">
-							<img
+							<!-- <img
 								alt=""
 								title=""
 								class="_card_status_img"
 								src="../static/img/placeholder.png"
 								lazy="loaded"
-							/>
+							/> -->
 						</div>
 					</div>
 				</div>
-
+				<!-- **************LIKE COMMENT****** -->
 				<div class="_num_like_all">
 					<div class="_num_like_left">
 						<p class="_num_like_text _num_like_text_like">
@@ -268,7 +275,7 @@
 				<div class="_1card_count">
 					<ul class="_1card_count_list">
 						<li class="">
-							<!-- React -->
+							<!-- *********************React************* -->
 							<div class="_all_react">
 								<div class="reactions-container">
 									<div
@@ -382,7 +389,7 @@
 									</div>
 								</div>
 							</div>
-							<!-- React -->
+							<!-- *********************React************************ -->
 							<div class="_1card_count_pic">
 								<svg
 									class="_1card_count_img"
