@@ -61,6 +61,8 @@ export default {
 
 	methods: {},
 
-	created() {},
+	created() {
+		console.log("im created22222=", this.authUser);
+	},
 };
 </script>

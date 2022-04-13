@@ -24,7 +24,7 @@ export const actions = {
     try {
       // get the initial data
       let { data } = await $axios.get('/auth/getUser')
-      console.log(data)
+      // console.log(data)
       commit('loginUser', data)
 
     } catch (e) {
@@ -34,6 +34,6 @@ export const actions = {
   async checkUser({ commit }) {
     const res = await this.$axios.$get("http://localhost:3333/auth/getUser")
     commit("loginUser", res)
-    console.log("im called")
+    // console.log("im called")
   }
 }
