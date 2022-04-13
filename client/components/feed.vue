@@ -37,7 +37,11 @@
 
 		<template v-if="isloaded">
 			<!-- *********POST STATRS HERE ************* -->
-			<div class="_card _mar_b20">
+			<div
+				class="_card _mar_b20"
+				v-for="(post, index) in posts"
+				:key="index"
+			>
 				<div class="_card_top_all">
 					<div class="_card_top">
 						<a href="" class="_card_pic">
@@ -53,9 +57,11 @@
 							<div class="_card_name_all">
 								<span class="_card_name_main">
 									<!-- ******************POST OWNER NAME****************** -->
-									<a href="" class="_card_name"
-										>Kollol Chakrabortyyy</a
-									>
+									<a href="" class="_card_name">{{
+										post.user.first_name +
+										" " +
+										post.user.last_name
+									}}</a>
 
 									<!-- ************Hover Profile info -->
 									<!-- <div class="_pro_info">
@@ -247,7 +253,9 @@
 				<!-- ********************MAIN CONTENT************************ -->
 				<div class="_card_body">
 					<!-- ********************MAIN CONTENT CAPTION************************ -->
-					<p class="_card_text"><span>CAPTION HERE PLEASE</span></p>
+					<p class="_card_text">
+						<span>{{ post.caption }}</span>
+					</p>
 
 					<div class="_card_status_pic_all">
 						<!-- ********************MAIN CONTENT IMG/VIDEO************************ -->
@@ -2233,8 +2241,9 @@ export default {
 		// ************GET POSTS***********
 		const res = await this.callApi("get", "posts/all");
 		// IF SUCCESSFULL
-		if (res.status === 20) {
+		if (res.status === 200) {
 			this.posts = res.data;
+			console.log(res.data);
 		}
 		var self = this;
 		var self2 = this;
