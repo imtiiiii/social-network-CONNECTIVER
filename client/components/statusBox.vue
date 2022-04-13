@@ -55,11 +55,13 @@
 									class="_statusBox_main_img _1border_color"
 								/>
 							</div>
+							<!-- ***********STATUS BOX MAIN ******************* -->
 							<div class="_statusBox_main_details">
 								<p class="_statusBox_main_name">
-									<a href="" class="_3link"
-										>Kollol Chakraborty</a
-									>
+									<!-- ********USER NAME****** -->
+									<a href="" class="_3link">{{
+										user.first_name + " " + user.last_name
+									}}</a>
 								</p>
 								<div class="_statusBox_main_drop">
 									<Dropdown
@@ -96,12 +98,15 @@
 								</div>
 							</div>
 						</div>
-
+						<!-- ************CAPTION AREA*********** -->
 						<div class="_statusBox_textarea">
 							<textarea
 								type="text"
-								placeholder="What's on your mind, Kollol"
+								v-bind:placeholder="
+									'whats on your mind ' + user.first_name
+								"
 								class="_statusBox_textarea_text"
+								v-model="caption"
 							></textarea>
 						</div>
 						<!-- <div class="_statusBox_video">
@@ -236,7 +241,7 @@
 									ivu-btn-large
 								"
 							>
-								<span> Share</span>
+								<span v-on:click="share"> Share</span>
 							</button>
 						</div>
 					</div>
@@ -257,12 +262,19 @@ export default {
 			isStatusbox: false,
 			isloaded: false,
 			isHide: true,
+			user: null,
+			caption: "",
 		};
 	},
 
-	methods: {},
+	methods: {
+		share() {
+			console.log("share called", this.caption);
+		},
+	},
 
 	created() {
+		this.user = this.authUser;
 		var self = this;
 		var self2 = this;
 		setTimeout(function () {

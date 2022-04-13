@@ -3,6 +3,6 @@ import PostsController from './PostsController'
 
 Route.group(() => {
     Route.post("/", "PostsController.share")
-    Route.get("/", "PostsController.share")
+    Route.get("/all/", "PostsController.share")
 
 }).prefix("posts").middleware("auth")
