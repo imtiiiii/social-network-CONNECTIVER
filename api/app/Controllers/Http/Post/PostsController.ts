@@ -1,3 +1,4 @@
+import Application from '@ioc:Adonis/Core/Application'
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import HttpExceptionHandler from '@ioc:Adonis/Core/HttpExceptionHandler';
 import Post from 'App/Models/Post';
@@ -7,12 +8,10 @@ export default class PostsController {
     public async share(ctx: HttpContextContract) {
         const data = ctx.request.body();
         const caption = data.caption;
-        const photo = data.photo
-        // const res = await Post.create(data);
-        console.log(caption);
+        const photo = ctx.request.file("img")
         console.log(photo)
-        // console.log(data)
-        // return res
+        await photo?.move(Application.publicPath("uploads"))
+
     }
     public async posts(ctx: HttpExceptionHandler) {
         // console.log("get called");

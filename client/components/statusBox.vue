@@ -296,13 +296,18 @@ export default {
 
 	methods: {
 		async share() {
-			console.log("share called", this.caption);
-			console.log("share called", this.photos);
-			const res = await this.callApi("post", "/posts/share", {
-				caption: this.caption,
-				user_id: this.user.id,
-				photo: this.photos,
-			});
+			// console.log("share called", this.caption);
+			const img = this.photos[0].file;
+			const fd = new FormData();
+			fd.append("img", img, img.name);
+			const res = await this.callApi(
+				"post",
+				"/posts/share",
+				fd
+				// 	caption: this.caption,
+				// 	user_id: this.user.id,
+				// 	photo: this.photos,
+			);
 			// if (res.status === 20) {
 			// 	this.caption = "";
 			// }
