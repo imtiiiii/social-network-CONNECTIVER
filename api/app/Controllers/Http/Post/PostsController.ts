@@ -9,10 +9,12 @@ export default class PostsController {
         const data = ctx.request.body();
         const caption = data.caption;
         const photo = ctx.request.file("img")
+        const imgName = new Date().getTime().toString() + `.${photo?.extname}`
         // console.log(photo)
-        await photo?.moveToDisk("/uploads");
-
+        await photo?.move(Application.publicPath("/uploads"), { name: imgName })
     }
+
+
     public async posts(ctx: HttpExceptionHandler) {
         // console.log("get called");
         const post = await Post.query().orderBy("id", "asc").preload("user")

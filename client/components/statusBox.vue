@@ -298,6 +298,7 @@ export default {
 		async share() {
 			// console.log("share called", this.caption);
 			const img = this.photos[0].file;
+			console.log(img);
 			const fd = new FormData();
 			fd.append("img", img, img.name);
 			const res = await this.callApi(
