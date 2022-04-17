@@ -1,5 +1,11 @@
 <template>
 	<div>
+		<!-- <div>
+			<VueFileAgent
+				:helpText="'Choose images'"
+				style="width: 100%"
+			></VueFileAgent>
+		</div> -->
 		<!-- Shimmer -->
 		<template v-if="isHide">
 			<div class="_statusBox_shimmer _mar_b20">
@@ -56,6 +62,7 @@
 								/>
 							</div>
 							<!-- ***********STATUS BOX MAIN ******************* -->
+
 							<div class="_statusBox_main_details">
 								<p class="_statusBox_main_name">
 									<!-- ********USER NAME****** -->
@@ -98,6 +105,7 @@
 								</div>
 							</div>
 						</div>
+
 						<!-- ************CAPTION AREA*********** -->
 						<div class="_statusBox_textarea">
 							<textarea
@@ -108,6 +116,16 @@
 								class="_statusBox_textarea_text"
 								v-model="caption"
 							></textarea>
+						</div>
+						<!-- **********CHOOSE PICTURE FROM YOUR FILES*************** -->
+						<!-- IT WILL ONLY BE SHOWN WHEN THE USER CHOOSES TO UPLAOD A PICTURE -->
+
+						<div v-if="pictureUpload">
+							<VueFileAgent
+								:helpText="'Choose images'"
+								v-model="photos"
+								:multiple="false"
+							></VueFileAgent>
 						</div>
 						<!-- <div class="_statusBox_video">
                             <Upload action="//jsonplaceholder.typicode.com/posts/">
@@ -122,7 +140,10 @@
 											<i class="fas fa-camera-retro"></i>
 										</div>
 
-										<p class="_statusBox_options_text">
+										<p
+											class="_statusBox_options_text"
+											v-on:click="uploadPhotos"
+										>
 											Upload Photos
 										</p>
 									</div>
@@ -256,6 +277,10 @@
 </template>
 
 <script>
+import Vue from "vue";
+import VueFileAgent from "vue-file-agent";
+import VueFileAgentStyles from "vue-file-agent/dist/vue-file-agent.css";
+Vue.use(VueFileAgent);
 export default {
 	data() {
 		return {
@@ -264,21 +289,26 @@ export default {
 			isHide: true,
 			user: null,
 			caption: "",
+			pictureUpload: false,
+			photos: [],
 		};
 	},
 
 	methods: {
 		async share() {
 			console.log("share called", this.caption);
+			console.log("share called", this.photos);
 			const res = await this.callApi("post", "/posts/share", {
 				caption: this.caption,
 				user_id: this.user.id,
+				photo: this.photos,
 			});
-			if (res.status === 20) {
-				this.$router.push("/");
-				location.reload();
-				this.caption = "";
-			}
+			// if (res.status === 20) {
+			// 	this.caption = "";
+			// }
+		},
+		uploadPhotos() {
+			this.pictureUpload = true;
 		},
 	},
 

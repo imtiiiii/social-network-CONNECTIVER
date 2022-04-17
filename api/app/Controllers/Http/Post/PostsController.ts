@@ -6,8 +6,13 @@ export default class PostsController {
     // SHARE = CREATE NEW POST 
     public async share(ctx: HttpContextContract) {
         const data = ctx.request.body();
-        const res = await Post.create(data);
-        return res
+        const caption = data.caption;
+        const photo = data.photo
+        // const res = await Post.create(data);
+        console.log(caption);
+        console.log(photo)
+        // console.log(data)
+        // return res
     }
     public async posts(ctx: HttpExceptionHandler) {
         // console.log("get called");
