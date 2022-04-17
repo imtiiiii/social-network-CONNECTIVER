@@ -9,7 +9,8 @@ export default class Posts extends BaseSchema {
             table.integer("user_id").unsigned().notNullable().references("id").inTable("users").onDelete("CASCADE").onUpdate("CASCADE").notNullable();
             // **************PRIVACY=1 MEANS PUBLIC PRIVACY=0 MEANS PRIVATE/FRIENDS ONLY
             table.integer("privacy").defaultTo(1);
-            table.string("caption").notNullable();
+            table.string("caption").defaultTo("test");
+            table.string("img").defaultTo(null);
             table.timestamp('created_at', { useTz: true }).defaultTo(this.now())
             table.timestamp('updated_at', { useTz: true }).defaultTo(this.now())
         })

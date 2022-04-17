@@ -10,6 +10,8 @@ export default class Post extends BaseModel {
     public user_id: number
     @column()
     public caption: string
+    @column()
+    public img: string
 
     @column()
     public privacy: number

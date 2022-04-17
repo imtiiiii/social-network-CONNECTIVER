@@ -144,7 +144,7 @@
 											class="_statusBox_options_text"
 											v-on:click="uploadPhotos"
 										>
-											Upload Photos
+											Upload Photossssssssss
 										</p>
 									</div>
 								</div>
@@ -245,7 +245,7 @@
 										</div>
 
 										<p class="_statusBox_options_text">
-											Upload File
+											Upload Fileeee
 										</p>
 									</div>
 								</div>
@@ -296,22 +296,15 @@ export default {
 
 	methods: {
 		async share() {
-			// console.log("share called", this.caption);
 			const img = this.photos[0].file;
-			console.log(img);
-			const fd = new FormData();
-			fd.append("img", img, img.name);
-			const res = await this.callApi(
-				"post",
-				"/posts/share",
-				fd
-				// 	caption: this.caption,
-				// 	user_id: this.user.id,
-				// 	photo: this.photos,
-			);
-			// if (res.status === 20) {
-			// 	this.caption = "";
-			// }
+			const data = new FormData();
+			data.append("img", img);
+			data.append("caption", this.caption);
+			data.append("user_id", this.user.id);
+			const res = await this.callApi("post", "/posts/share", data);
+			if (res.status === 200) {
+				this.caption = "";
+			}
 		},
 		uploadPhotos() {
 			this.pictureUpload = true;
