@@ -9,8 +9,8 @@ export default class PostsController {
         const data = ctx.request.body();
         const caption = data.caption;
         const photo = ctx.request.file("img")
-        console.log(photo)
-        await photo?.move(Application.publicPath("uploads"))
+        // console.log(photo)
+        await photo?.moveToDisk("/uploads");
 
     }
     public async posts(ctx: HttpExceptionHandler) {
