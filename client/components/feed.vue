@@ -766,7 +766,7 @@
 			</div>
 			<!-- ************************************2ND POST ********************************** -->
 
-			<!-- <div class="_card _mar_b20">
+			<div class="_card _mar_b20">
 				<div class="_card_top_all">
 					<div class="_card_top">
 						<a href="" class="_card_pic">
@@ -782,10 +782,10 @@
 								<span class="_card_name_main">
 									<a href="" class="_card_name"
 										>Kollol Chakraborty</a
-									> -->
+									>
 
-			<!-- Hover Profile info -->
-			<!-- <div class="_pro_info">
+									<!-- Hover Profile info -->
+									<div class="_pro_info">
 										<div class="_pro_info_cover">
 											<img
 												class="_pro_info_cover_img"
@@ -813,10 +813,16 @@
 													>
 														Karen River
 													</router-link>
-												</p> -->
-			<!-- <p><a href="" class="_pro_info_pre">3 followers</a></p> -->
+												</p>
+												<p>
+													<a
+														href=""
+														class="_pro_info_pre"
+														>3 followers</a
+													>
+												</p>
 
-			<!-- <ul class="_pro_info_list">
+												<ul class="_pro_info_list">
 													<li>
 														<i
 															class="fas fa-users"
@@ -901,9 +907,9 @@
 												</button>
 											</li>
 										</ul>
-									</div> -->
-			<!-- Hover Profile info -->
-			<!-- </span>
+									</div>
+									<!-- Hover Profile info -->
+								</span>
 								<span class="_card_name_span"
 									>updated the profile picture</span
 								>
@@ -1033,12 +1039,20 @@
 								<p class="_cardMulti_more_text">+3</p>
 							</div>
 						</div>
-					</div> -->
+					</div>
 
-			<!-- <div class="_card_status_pic_all">
-                        <div @click="isModal = true" class="_card_status_pic"><img alt="" title="" class="_card_status_img" src="../static/img/placeholder.png" lazy="loaded"></div>
-                    </div> -->
-			<!-- </div>
+					<div class="_card_status_pic_all">
+						<div @click="isModal = true" class="_card_status_pic">
+							<img
+								alt=""
+								title=""
+								class="_card_status_img"
+								src="../static/img/placeholder.png"
+								lazy="loaded"
+							/>
+						</div>
+					</div>
+				</div>
 
 				<div class="_num_like_all">
 					<div class="_num_like_left">
@@ -1053,9 +1067,9 @@
 
 				<div class="_1card_count">
 					<ul class="_1card_count_list">
-						<li class=""> -->
-			<!-- React -->
-			<!-- <div class="_all_react">
+						<li class="">
+							<!-- React -->
+							<div class="_all_react">
 								<div class="reactions-container">
 									<div
 										class="
@@ -1168,8 +1182,7 @@
 									</div>
 								</div>
 							</div>
-							
-                            
+
 							<div class="_1card_count_pic">
 								<svg
 									class="_1card_count_img"
@@ -1532,7 +1545,7 @@
 						</div>
 					</div>
 				</div>
-			</div> -->
+			</div>
 		</template>
 
 		<!-- Image show modal -->
@@ -2243,7 +2256,7 @@ export default {
 		// IF SUCCESSFULL
 		if (res.status === 200) {
 			this.posts = res.data;
-			console.log(res.data);
+			console.log("all posts data= ", res);
 		}
 		var self = this;
 		var self2 = this;
