@@ -303,12 +303,15 @@ export default {
 				// console.log("this photo=", img.file);
 				allPhotos.push(img.file);
 			}
-			console.log("all photo=", allPhotos);
-			// const data = new FormData();
-			// data.append("img", img);
+			// console.log("all photo=", allPhotos);
+			const data = new FormData();
+			// STORING ALL PHOTOS IN THE FORM DATA WITH LOOP BECAUSE ITS MULTIPLE FILE
+			for (let img of allPhotos) {
+				data.append("img", img);
+			}
 			// data.append("caption", this.caption);
 			// data.append("user_id", this.user.id);
-			// const res = await this.callApi("post", "/posts/share", data);
+			const res = await this.callApi("post", "/posts/share", data);
 			// if (res.status === 200) {
 			// 	this.caption = "";
 			// }
