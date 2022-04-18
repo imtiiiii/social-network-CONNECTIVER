@@ -260,13 +260,13 @@
 					<div class="_card_status_pic_all">
 						<!-- ********************MAIN CONTENT IMG/VIDEO************************ -->
 						<div @click="isModal = true" class="_card_status_pic">
-							<!-- <img
+							<img
 								alt=""
 								title=""
 								class="_card_status_img"
 								src="../static/img/placeholder.png"
 								lazy="loaded"
-							/> -->
+							/>
 						</div>
 					</div>
 				</div>
@@ -2255,8 +2255,11 @@ export default {
 		const res = await this.callApi("get", "posts/all");
 		// IF SUCCESSFULL
 		if (res.status === 200) {
-			this.posts = res.data;
-			console.log("all posts data= ", res);
+			// console.log("res.data = ", res.data);
+			let img = JSON.parse(res.data[1].img);
+			for (let i in img) {
+				console.log("i of img = ", img[i]);
+			}
 		}
 		var self = this;
 		var self2 = this;

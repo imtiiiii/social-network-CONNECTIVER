@@ -14,24 +14,27 @@ export default class PostsController {
         console.log("user_id=", user_id)
         console.log("caption=", caption)
 
-        let names = new Array();
+        let names = {}
+        let i = 1;
         for (let img of photos) {
             const imgName = new Date().getTime().toString() + `.${img?.extname}`;
+            names[`${i}`] = imgName;
+            i++;
 
-            names.push(JSON.stringify(imgName))
             // console.log("all photos", img)
             await img?.move(Application.publicPath("/uploads"), { name: imgName })
         }
 
-        // console.log("names= ", names)
+        // console.log("names= ", names[1])
         const img = JSON.stringify(names)
+        console.log("img=", img)
         const post = {
             user_id: user_id,
-            img: JSON.stringify(img),
+            img: img,
             caption: caption
         }
         const save = await Post.create(post)
-        return save
+        // return save
     }
 
 
