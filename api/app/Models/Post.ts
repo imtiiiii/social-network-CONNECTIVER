@@ -11,7 +11,7 @@ export default class Post extends BaseModel {
     @column()
     public caption: string
     @column()
-    public img: string
+    public img: JSON
 
     @column()
     public privacy: number

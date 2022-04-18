@@ -13,21 +13,25 @@ export default class PostsController {
         const caption = data.caption
         console.log("user_id=", user_id)
         console.log("caption=", caption)
+
+        let names = new Array();
         for (let img of photos) {
-            const imgName = new Date().getTime().toString() + `.${img?.extname}`
+            const imgName = new Date().getTime().toString() + `.${img?.extname}`;
+
+            names.push(imgName)
             // console.log("all photos", img)
             await img?.move(Application.publicPath("/uploads"), { name: imgName })
         }
 
-
-
-        // const post = {
-        //     user_id: user_id,
-        //     img: imgName,
-        //     caption: caption
-        // }
-        // const save = await Post.create(post)
-        // return save
+        // console.log("names= ", names)
+        const img = JSON.stringify(names)
+        const post = {
+            user_id: user_id,
+            img: JSON.stringify(img),
+            caption: caption
+        }
+        const save = await Post.create(post)
+        return save
     }
 
 
