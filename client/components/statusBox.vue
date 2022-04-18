@@ -124,7 +124,7 @@
 							<VueFileAgent
 								:helpText="'Choose images'"
 								v-model="photos"
-								:multiple="false"
+								:multiple="true"
 							></VueFileAgent>
 						</div>
 						<!-- <div class="_statusBox_video">
@@ -296,15 +296,22 @@ export default {
 
 	methods: {
 		async share() {
-			const img = this.photos[0].file;
-			const data = new FormData();
-			data.append("img", img);
-			data.append("caption", this.caption);
-			data.append("user_id", this.user.id);
-			const res = await this.callApi("post", "/posts/share", data);
-			if (res.status === 200) {
-				this.caption = "";
+			// const img = this.photosfile;
+			// it will store all photos to be uploaded
+			const allPhotos = [];
+			for (let img of this.photos) {
+				// console.log("this photo=", img.file);
+				allPhotos.push(img.file);
 			}
+			console.log("all photo=", allPhotos);
+			// const data = new FormData();
+			// data.append("img", img);
+			// data.append("caption", this.caption);
+			// data.append("user_id", this.user.id);
+			// const res = await this.callApi("post", "/posts/share", data);
+			// if (res.status === 200) {
+			// 	this.caption = "";
+			// }
 		},
 		uploadPhotos() {
 			this.pictureUpload = true;
