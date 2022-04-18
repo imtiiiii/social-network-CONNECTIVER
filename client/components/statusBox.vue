@@ -1,12 +1,5 @@
 <template>
 	<div>
-		<!-- <div>
-			<VueFileAgent
-				:helpText="'Choose images'"
-				style="width: 100%"
-			></VueFileAgent>
-		</div> -->
-		<!-- Shimmer -->
 		<template v-if="isHide">
 			<div class="_statusBox_shimmer _mar_b20">
 				<div class="_statusBox_shimmer_pic _shim_animate"></div>
@@ -16,7 +9,6 @@
 			</div>
 		</template>
 		<!-- Shimmer -->
-
 		<template v-if="isloaded">
 			<div
 				:class="
@@ -38,12 +30,16 @@
 						<input type="text" placeholder="Create a new post..." />
 					</div>
 				</div>
-				<!-- <div class="_statusBox_bottom">
-                    <ul class="_statusBox_bottom_ul">
-                        <li @click="isStatusbox = true"><i class="fas fa-images"></i> Photo</li>
-                        <li @click="isStatusbox = true"><i class="fas fa-video"></i> Video</li>
-                    </ul>
-                </div> -->
+				<div class="_statusBox_bottom">
+					<ul class="_statusBox_bottom_ul">
+						<li @click="isStatusbox = true">
+							<i class="fas fa-images"></i> Photo
+						</li>
+						<li @click="isStatusbox = true">
+							<i class="fas fa-video"></i> Video
+						</li>
+					</ul>
+				</div>
 				<div class="_statusBox_main_all">
 					<div class="_statusBox_main _padd">
 						<p
@@ -87,7 +83,7 @@
 												"
 											></i>
 										</a>
-
+										<!-- *********DROP DOWN FOR PRIVACY SETTINGS*********** -->
 										<DropdownMenu slot="list">
 											<DropdownItem
 												><p>Public</p></DropdownItem
@@ -297,24 +293,28 @@ export default {
 	methods: {
 		async share() {
 			// const img = this.photosfile;
-			// it will store all photos to be uploaded
+			// it will store all photos(file) to be uploaded at oncee
 			const allPhotos = [];
 			for (let img of this.photos) {
-				// console.log("this photo=", img.file);
+				// ********STORING FILES TO SEND AS FORM DATA ****
 				allPhotos.push(img.file);
 			}
-			// console.log("all photo=", allPhotos);
+			// *********CREATING A FORM DATA OBJECT TO SEND FILES TO BACKEND*********
 			const data = new FormData();
 			// STORING ALL PHOTOS IN THE FORM DATA WITH LOOP BECAUSE ITS MULTIPLE FILE
 			for (let img of allPhotos) {
 				data.append("img", img);
 			}
+			// *********STORING CAPTION AND USER ID IN FORM DATA ********
 			data.append("caption", this.caption);
 			data.append("user_id", this.user.id);
+
 			const res = await this.callApi("post", "/posts/share", data);
-			// if (res.status === 200) {
-			// 	this.caption = "";
-			// }
+			if (res.status === 200) {
+				this.caption = "";
+				this.photos = [];
+				this.pictureUpload = false;
+			}
 		},
 		uploadPhotos() {
 			this.pictureUpload = true;

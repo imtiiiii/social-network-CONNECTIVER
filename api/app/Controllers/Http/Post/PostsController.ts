@@ -18,7 +18,7 @@ export default class PostsController {
         for (let img of photos) {
             const imgName = new Date().getTime().toString() + `.${img?.extname}`;
 
-            names.push(imgName)
+            names.push(JSON.stringify(imgName))
             // console.log("all photos", img)
             await img?.move(Application.publicPath("/uploads"), { name: imgName })
         }
