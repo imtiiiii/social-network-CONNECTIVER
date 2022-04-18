@@ -309,8 +309,8 @@ export default {
 			for (let img of allPhotos) {
 				data.append("img", img);
 			}
-			// data.append("caption", this.caption);
-			// data.append("user_id", this.user.id);
+			data.append("caption", this.caption);
+			data.append("user_id", this.user.id);
 			const res = await this.callApi("post", "/posts/share", data);
 			// if (res.status === 200) {
 			// 	this.caption = "";

@@ -6,14 +6,21 @@ import Post from 'App/Models/Post';
 export default class PostsController {
     // SHARE = CREATE NEW POST 
     public async share(ctx: HttpContextContract) {
-        const photo = ctx.request.files("img");
-        // const data = ctx.request.all();
-        console.log("photo=", photo)
-        // const user_id = data.user_id
-        // const caption = data.caption
-        // const imgName = new Date().getTime().toString() + `.${photo?.extname}`
+        const photos = ctx.request.files("img");
+        const data = ctx.request.all();
+        // console.log("photo=", photo)
+        const user_id = data.user_id
+        const caption = data.caption
+        console.log("user_id=", user_id)
+        console.log("caption=", caption)
+        for (let img of photos) {
+            const imgName = new Date().getTime().toString() + `.${img?.extname}`
+            // console.log("all photos", img)
+            await img?.move(Application.publicPath("/uploads"), { name: imgName })
+        }
 
-        // // await photo?.move(Application.publicPath("/uploads"), { name: imgName })
+
+
         // const post = {
         //     user_id: user_id,
         //     img: imgName,
