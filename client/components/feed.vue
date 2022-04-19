@@ -271,9 +271,6 @@
 									v-for="(img, index) in post.img"
 									:key="index"
 								>
-									<!-- hello ={{ post.img[index] }} -->
-									<!-- {{ link(post.img[index]) }} -->
-
 									<img
 										alt="not getting"
 										:src="link(post.img[index])"
