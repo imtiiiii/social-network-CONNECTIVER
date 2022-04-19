@@ -8,7 +8,7 @@ export default class PostsController {
     public async share(ctx: HttpContextContract) {
         const photos = ctx.request.files("img");
         const data = ctx.request.all();
-        // console.log("photo=", photo)
+
         const user_id = data.user_id
         const caption = data.caption
         console.log("user_id=", user_id)
@@ -17,11 +17,12 @@ export default class PostsController {
         let names = {}
         let i = 1;
         for (let img of photos) {
+            // ********SAVING THE FILE/IMG WITH A RAMDOM NAME TO AVAOID DUPLICATEING ******
             const imgName = new Date().getTime().toString() + `.${img?.extname}`;
+            // SAVING THE NAMES AS OBJECT AND INDEX WISE
             names[`${i}`] = imgName;
             i++;
-
-            // console.log("all photos", img)
+            // MOVING THE FILE/IMG TO PUBLIC FOLDER
             await img?.move(Application.publicPath("/uploads"), { name: imgName })
         }
 
@@ -34,7 +35,7 @@ export default class PostsController {
             caption: caption
         }
         const save = await Post.create(post)
-        // return save
+        return save
     }
 
 
