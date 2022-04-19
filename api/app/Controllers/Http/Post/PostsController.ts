@@ -41,7 +41,7 @@ export default class PostsController {
 
     public async posts(ctx: HttpExceptionHandler) {
         // console.log("get called");
-        const post = await Post.query().orderBy("id", "asc").preload("user")
+        const post = await Post.query().orderBy("id", "desc").preload("user")
 
         return post
 
