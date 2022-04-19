@@ -1,9 +1,6 @@
 <template>
 	<div>
 		<!-- Shimmer -->
-		<!-- <div>
-			<img src="http://localhost:3333/uploads/1650275203615.jpg" />
-		</div> -->
 		<template v-if="isHide">
 			<div v-for="(item, index) in 2" :key="index" class="_card _mar_b20">
 				<div class="_card_shimmer">
@@ -13,7 +10,6 @@
 						<div class="_card_shimmer_text _shim_animate"></div>
 					</div>
 				</div>
-
 				<div class="_card_shimmer_status">
 					<div
 						class="
@@ -39,35 +35,36 @@
 		<!-- Shimmer -->
 
 		<template v-if="isloaded">
-			<!-- *********POST STATRS HERE ************* -->
-			<div
-				class="_card _mar_b20"
-				v-for="(post, index) in posts"
-				:key="index"
-			>
-				<div class="_card_top_all">
-					<div class="_card_top">
-						<a href="" class="_card_pic">
-							<img
-								alt=""
-								title=""
-								class="_card_img"
-								src="../static/img/placeholder.png"
-							/>
-						</a>
+			<div class="_card _mar_b20">
+				<!-- ********* LOADING/SHOWING POSTS STATR HERE ************* -->
+				<!-- LOOP -->
+				<div v-for="(post, index) of posts" :key="index">
+					<div class="_card_top_all">
+						<div class="_card_top">
+							<a href="" class="_card_pic">
+								<!-- PROFILE PICTURE  -->
+								<img
+									alt=""
+									title=""
+									class="_card_img"
+									src="../static/img/placeholder.png"
+								/>
+							</a>
 
-						<div class="_card_details">
-							<div class="_card_name_all">
-								<span class="_card_name_main">
-									<!-- ******************POST OWNER NAME****************** -->
-									<a href="" class="_card_name">{{
-										post.user.first_name +
-										" " +
-										post.user.last_name
-									}}</a>
+							<div class="_card_details">
+								<div class="_card_name_all">
+									<span class="_card_name_main">
+										<!-- ******************POST OWNER NAME****************** -->
+										<a href="" class="_card_name">{{
+											post.user.first_name +
+											" " +
+											post.user.last_name
+										}}</a>
 
-									<!-- ************Hover Profile info -->
-									<!-- <div class="_pro_info">
+										<!-- ************Hover Profile info STARTS ************** -->
+
+										<!-- 
+                                    <div class="_pro_info">
 										<div class="_pro_info_cover">
 											<img
 												class="_pro_info_cover_img"
@@ -96,9 +93,9 @@
 														Karen River
 													</router-link>
 												</p> -->
-									<!-- <p><a href="" class="_pro_info_pre">3 followers</a></p> -->
+										<!-- <p><a href="" class="_pro_info_pre">3 followers</a></p> -->
 
-									<!-- <ul class="_pro_info_list">
+										<!-- <ul class="_pro_info_list">
 													<li>
 														<i
 															class="fas fa-users"
@@ -183,93 +180,108 @@
 												</button>
 											</li>
 										</ul> -->
-									<!-- </div> -->
-									<!-- Hover Profile info -->
-								</span>
-								<!-- *********POST ACTIVITY TYPE******** -->
-								<span class="_card_name_span"
-									>updated the profile picture</span
-								>
+										<!-- </div> -->
+										<!--************* Hover Profile info ENDS ********** -->
+									</span>
+									<!-- ********* POST ACTIVITY TYPE ******** -->
+									<span class="_card_name_span"
+										>updated the profile picture</span
+									>
+								</div>
+								<!-- ******** POST POSTING TIME ********* -->
+								<p class="_card_time">
+									a few seconds ago
+									<span class="_card_time_public">
+										<i class="fas fa-globe"></i>
+									</span>
+								</p>
 							</div>
-							<!-- ********POST TIME ********* -->
-							<p class="_card_time">
-								a few seconds ago
-								<span class="_card_time_public">
-									<i class="fas fa-globe"></i>
-								</span>
-							</p>
 						</div>
+						<!-- ****************DROP DOWN OPTION IN A POST**********  -->
+						<div class="_card_top_more">
+							<Dropdown trigger="click" placement="bottom-end">
+								<a class="_more" href="javascript:void(0)">
+									<i class="fas fa-angle-down"></i>
+								</a>
+								<DropdownMenu slot="list">
+									<DropdownItem
+										><p class="_drop_text _drop_pre_icon">
+											<i class="fas fa-bookmark"></i> Save
+											Post
+										</p></DropdownItem
+									>
+									<DropdownItem
+										><p class="_drop_text _drop_pre_icon">
+											<i class="fas fa-flag"></i> Report
+											Post
+										</p></DropdownItem
+									>
+									<DropdownItem divided
+										><p class="_drop_text _drop_pre_icon">
+											<i class="fas fa-thumbtack"></i> Pin
+											Post
+										</p></DropdownItem
+									>
+									<DropdownItem
+										><p class="_drop_text _drop_pre_icon">
+											<i class="fas fa-pencil-alt"></i>
+											Edit Post
+										</p></DropdownItem
+									>
+									<DropdownItem
+										><p class="_drop_text _drop_pre_icon">
+											<i class="fas fa-trash-alt"></i>
+											Delete Post
+										</p></DropdownItem
+									>
+									<DropdownItem
+										><p class="_drop_text _drop_pre_icon">
+											<i class="fas fa-eye-slash"></i>
+											Turn off Commenting
+										</p></DropdownItem
+									>
+									<DropdownItem divided
+										><p class="_drop_text _drop_pre_icon">
+											<i class="fas fa-link"></i> Open
+											post in new tab
+										</p></DropdownItem
+									>
+								</DropdownMenu>
+							</Dropdown>
+						</div>
+						<!-- ****************DROP DOWN OPTION IN A POST ENDS**********  -->
 					</div>
-					<!-- ****************DROP DOWN OPTION IN A POST  -->
-					<!-- <div class="_card_top_more">
-						<Dropdown trigger="click" placement="bottom-end">
-							<a class="_more" href="javascript:void(0)">
-								<i class="fas fa-angle-down"></i>
-							</a>
-							<DropdownMenu slot="list">
-								<DropdownItem
-									><p class="_drop_text _drop_pre_icon">
-										<i class="fas fa-bookmark"></i> Save
-										Post
-									</p></DropdownItem
-								>
-								<DropdownItem
-									><p class="_drop_text _drop_pre_icon">
-										<i class="fas fa-flag"></i> Report Post
-									</p></DropdownItem
-								>
-								<DropdownItem divided
-									><p class="_drop_text _drop_pre_icon">
-										<i class="fas fa-thumbtack"></i> Pin
-										Post
-									</p></DropdownItem
-								>
-								<DropdownItem
-									><p class="_drop_text _drop_pre_icon">
-										<i class="fas fa-pencil-alt"></i> Edit
-										Post
-									</p></DropdownItem
-								>
-								<DropdownItem
-									><p class="_drop_text _drop_pre_icon">
-										<i class="fas fa-trash-alt"></i> Delete
-										Post
-									</p></DropdownItem
-								>
-								<DropdownItem
-									><p class="_drop_text _drop_pre_icon">
-										<i class="fas fa-eye-slash"></i> Turn
-										off Commenting
-									</p></DropdownItem
-								>
-								<DropdownItem divided
-									><p class="_drop_text _drop_pre_icon">
-										<i class="fas fa-link"></i> Open post in
-										new tab
-									</p></DropdownItem
-								>
-							</DropdownMenu>
-						</Dropdown>
-					</div> -->
-				</div>
-				<!-- ********************MAIN CONTENT************************ -->
-				<!-- ********************MAIN CONTENT************************ -->
-				<div class="_card_body">
-					<!-- ********************MAIN CONTENT CAPTION************************ -->
-					<p class="_card_text">
-						<span>{{ post.caption }}</span>
-					</p>
+					<!-- ********************MAIN CONTENT************************ -->
+					<!-- ********************MAIN CONTENT************************ -->
+					<div class="_card_body">
+						<!-- ********************MAIN CONTENT CAPTION /  STATUS************************ -->
+						<p class="_card_text">
+							<span>{{ post.caption }}</span>
+						</p>
+						<div class="_card_status_pic_all">
+							<!-- ********************MAIN CONTENT *****IMG/VIDEO************************ -->
+							<!-- ********* IF IMG IS PRESENT IN THE POST ************ -->
+							<div v-if="post.img !== null">
+								<!-- HOW MANY IMAGES UPLOADED IN A SINGLE POST ?  -->
+								<!-- {{ Object.keys(post.img).length }} -->
 
-					<div class="_card_status_pic_all">
-						<!-- ********************MAIN CONTENT *****IMG/VIDEO************************ -->
-						<div @click="isModal = true" class="_card_status_pic">
-							<img
-								alt=""
-								title=""
-								class="_card_status_img"
-								src="../static/img/placeholder.png"
-								lazy="loaded"
-							/>
+								<div
+									@click="isModal = true"
+									class="_card_status_pic"
+									v-for="(img, index) in post.img"
+									:key="index"
+								>
+									<!-- hello ={{ post.img[index] }} -->
+									<!-- {{ link(post.img[index]) }} -->
+
+									<img
+										alt="not getting"
+										:src="link(post.img[index])"
+										title=""
+										class="_card_status_img"
+									/>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -2248,18 +2260,29 @@ export default {
 			isHide: true,
 			isModal: false,
 			posts: null,
-			test: null,
 		};
 	},
-	computed: {
-		formatPost() {
-			console.log("format post called");
+	async created() {
+		var self = this;
+		var self2 = this;
+		setTimeout(function () {
+			self.$nextTick(function () {
+				self.isloaded = true;
+			});
+			self2.$nextTick(function () {
+				self2.isHide = false;
+			});
+		}, 1500);
+	},
+	methods: {
+		link(img) {
+			return "http://localhost:3333/uploads/" + img;
 		},
 	},
-	async created() {
+	async mounted() {
 		// ************GET POSTS***********
 		const res = await this.callApi("get", "posts/all");
-		// IF SUCCESSFULL
+		// ************IF SUCCESSFULL STARTS************
 		if (res.status === 200) {
 			this.posts = res.data;
 			// console.log("posts= ", this.posts);
@@ -2273,25 +2296,12 @@ export default {
 				}
 				// *********ELSE THERE ARE IMAGE(S)*******
 				else {
+					// *******convering json file to object********
 					post.img = JSON.parse(post.img);
-					// console.log("after parsing this.posts=", this.posts);
-					// for (let x in post.img) {
-					// 	console.log("2nd loop", post.img[x]);
-					// }
 				}
 			}
 		}
-		console.log("final=", this.posts);
-		var self = this;
-		var self2 = this;
-		setTimeout(function () {
-			self.$nextTick(function () {
-				self.isloaded = true;
-			});
-			self2.$nextTick(function () {
-				self2.isHide = false;
-			});
-		}, 1500);
+		// ************IF SUCCESSFULL ENDS************
 	},
 };
 </script>
