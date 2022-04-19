@@ -5,4 +5,4 @@ Route.group(() => {
     Route.post("/share", "Post/PostsController.share")
     Route.get("/all", "Post/PostsController.posts")
 
-}).prefix("posts")
+}).prefix("posts").middleware("auth")

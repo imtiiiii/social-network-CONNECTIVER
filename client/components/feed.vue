@@ -1,6 +1,9 @@
 <template>
 	<div>
 		<!-- Shimmer -->
+		<!-- <div>
+			<img src="http://localhost:3333/uploads/1650275203615.jpg" />
+		</div> -->
 		<template v-if="isHide">
 			<div v-for="(item, index) in 2" :key="index" class="_card _mar_b20">
 				<div class="_card_shimmer">
@@ -258,7 +261,7 @@
 					</p>
 
 					<div class="_card_status_pic_all">
-						<!-- ********************MAIN CONTENT IMG/VIDEO************************ -->
+						<!-- ********************MAIN CONTENT *****IMG/VIDEO************************ -->
 						<div @click="isModal = true" class="_card_status_pic">
 							<img
 								alt=""
@@ -2245,22 +2248,40 @@ export default {
 			isHide: true,
 			isModal: false,
 			posts: null,
+			test: null,
 		};
 	},
-
-	methods: {},
-
+	computed: {
+		formatPost() {
+			console.log("format post called");
+		},
+	},
 	async created() {
 		// ************GET POSTS***********
 		const res = await this.callApi("get", "posts/all");
 		// IF SUCCESSFULL
 		if (res.status === 200) {
-			// console.log("res.data = ", res.data);
-			let img = JSON.parse(res.data[1].img);
-			for (let i in img) {
-				console.log("i of img = ", img[i]);
+			this.posts = res.data;
+			// console.log("posts= ", this.posts);
+			// *****LOOPING THROUGH ALL ALL POSTS**
+			for (let post of this.posts) {
+				let img = JSON.parse(post.img);
+				// *********IF IMG IS STRING MEANS THERE WERE NO PHOTO ON THAT POST*********
+				if (typeof img === "string") {
+					// console.log("im null");
+					post.img = null;
+				}
+				// *********ELSE THERE ARE IMAGE(S)*******
+				else {
+					post.img = JSON.parse(post.img);
+					// console.log("after parsing this.posts=", this.posts);
+					// for (let x in post.img) {
+					// 	console.log("2nd loop", post.img[x]);
+					// }
+				}
 			}
 		}
+		console.log("final=", this.posts);
 		var self = this;
 		var self2 = this;
 		setTimeout(function () {
